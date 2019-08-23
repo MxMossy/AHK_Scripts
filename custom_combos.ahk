@@ -1,29 +1,63 @@
+;scroll terminal with keyboard
 !-::
-	send {WheelDown 1} 
+	sendinput {WheelDown 1} 
 	return  
 !=:: 
-	send {WheelUp 1} 
+	sendinput {WheelUp 1} 
 	return
 
+;vim movements
 !h::
-	send {Left}
+	sendinput {Left}
 	return
 
 !j::
-	send {Down}
+	sendinput {Down}
 	return
 
 !k::
-	send {Up}
+	sendinput {Up}
 	return
 
 !l::
-	send {Right}
+	sendinput {Right}
 	return
+
++!h::
+	sendinput {Home}
+	return
+
++!l::
+	sendinput {End}
+	return
+
++!j::
+	sendinput {Pgdn}
+	return
+
++!k::
+	sendinput {Pgup}
+	return
+
+^!h::
+	sendinput ^{Left}
+	return
+
+^!l::
+	sendinput ^{Right}
+	return
+
+ 
+
+;backward tab navigation
+^`::
+    sendinput ^+{Tab}
+    return
 
 ^!j::
 	Run ConEmu , C:\Program Files (x86)\ConEmu
 	Return
+
 ^!o::
 	Run chrome , C:\Program Files (x86)\Google\Chrome\Application
 	Return
@@ -31,3 +65,7 @@
 ^!\::
     Run calc , C:\Users\Max Mossberg\Documents\Coding\AutoHotKey
     Return
+
+!t::
+	Winset, Alwaysontop, , A
+
