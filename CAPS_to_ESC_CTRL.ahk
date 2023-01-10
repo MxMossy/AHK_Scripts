@@ -2,7 +2,7 @@
 #SingleInstance
 
 ; turns CapsLock into CTRL and ESC on tap if no other keys pressed
-global ESC_DELAY := 200 ; Escape only triggered if held for < 200 ms
+ESC_DELAY := 200 ; Escape only triggered if held for < 200 ms
 
 ; Run as admin, see https://www.autohotkey.com/docs/v2/lib/Run.htm#RunAs
 full_command_line := DllCall("GetCommandLine", "str")
@@ -20,7 +20,6 @@ if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)"))
 ;MsgBox "A_IsAdmin: " A_IsAdmin "`nCommand line: " full_command_line
 
 SetCapsLockState "AlwaysOff"
-global cDown
 *CapsLock::
 {
     Send "{Blind}{Ctrl Down}"
